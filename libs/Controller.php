@@ -1,9 +1,8 @@
 <?php
 
-class Controller {
+class Controller extends Bootstrap {
 
     function __construct() {
-        echo "Controller";
     }
 
 }
