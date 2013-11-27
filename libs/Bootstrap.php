@@ -20,7 +20,6 @@ class Bootstrap {
     private function setUrl() {
         $_GET['url'] = (isset($_GET['url']) ? $_GET['url'] : 'index/index');
         $this->_url = rtrim($_GET['url'], '/');
-        
     }
 
     private function setExplode() {
@@ -38,7 +37,7 @@ class Bootstrap {
 
     private function setParams() {
         unset($this->_explode[0], $this->_explode[1]);
-        
+
         $i = 0;
         if (!empty($this->_explode)) {
             foreach ($this->_explode as $value) {
@@ -48,19 +47,20 @@ class Bootstrap {
                     $val[] = $value;
                 $i++;
             }
+
             if (count($val) == count($ind) and !empty($ind) and !empty($val))
                 $this->_params = array_combine($ind, $val);
             else
                 $this->_params = array();
-            //print_r($this->_params);
-            //
         }
     }
 
     public function getParams($name) {
         $bootstrap = new Bootstrap();
-        if(!array_key_exists($name, $bootstrap->_params))
-                die("O valor nao existe no array");
+
+        if (!array_key_exists($name, $bootstrap->_params))
+            die("O valor nao existe no array");
+
         return $bootstrap->_params[$name];
     }
 
@@ -77,6 +77,22 @@ class Bootstrap {
             die('A action não existe');
 
         $app->{$this->_action}();
+    }
+
+    public function render($name) {
+        $debug = parse_ini_file("config.ini");
+        $path = 'views/' . $name . '.phtml';
+        
+        if (!file_exists($path))
+                die("O arquivo nao existe");
+        
+        if ($debug['DEBUG'] == TRUE) {
+            require $path;
+        }else {
+            require 'views/header.phtml';
+            require 'views/' . $name . '.php';
+            require 'views/footer.phtml';
+        }
     }
 
 }

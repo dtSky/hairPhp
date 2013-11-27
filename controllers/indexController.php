@@ -12,7 +12,7 @@ class Index extends Bootstrap {
     }
     
     public function novoAction(){
-        echo $this->getParams('nome');
+        $this->render('index/novo');
     }
 
 }
