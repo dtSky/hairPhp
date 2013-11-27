@@ -1,6 +1,5 @@
 <?php
-
-class Index extends Controller {
+class Index extends Bootstrap {
 
     function __construct() {
     }
@@ -8,8 +7,12 @@ class Index extends Controller {
     public function indexAction(){
         
         //$this->getParams('$name');
-        print_r($this->_controller);
+        
         echo 'VOCE ESTA NA INDEX';
+    }
+    
+    public function novoAction(){
+        echo $this->getParams('nome');
     }
 
 }

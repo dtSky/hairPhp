@@ -2,13 +2,14 @@
 
 class Bootstrap {
 
-    private $_url;
-    private $_explode;
+    protected $_url;
+    protected $_explode;
     public $_controller;
     public $_action;
     public $_params;
+    public $a;
 
-    function __construct() {
+    public function __construct() {
         $this->setUrl();
         $this->setExplode();
         $this->setController();
@@ -17,13 +18,13 @@ class Bootstrap {
     }
 
     private function setUrl() {
-        $_GET['url'] = (isset($_GET['url']) ? $_GET['url'] : 'index');
-        $this->_url = $_GET['url'];
+        $_GET['url'] = (isset($_GET['url']) ? $_GET['url'] : 'index/index');
+        $this->_url = rtrim($_GET['url'], '/');
+        
     }
 
     private function setExplode() {
-        $rtrim = rtrim($this->_url, '/');
-        $this->_explode = explode('/', $rtrim);
+        $this->_explode = explode('/', $this->_url);
     }
 
     private function setController() {
@@ -31,12 +32,13 @@ class Bootstrap {
     }
 
     private function setAction() {
-        $this->_action = (!isset($this->_explode[1]) || $this->_explode[1] == "index" ? "indexAction" : $this->_explode[1] . 'Action');
+        $action = (!isset($this->_explode[1]) || $this->_explode[1] == NULL || $this->_explode[1] == 'index' ? 'index' : $this->_explode[1]);
+        $this->_action = $action . 'Action';
     }
 
     private function setParams() {
         unset($this->_explode[0], $this->_explode[1]);
-
+        
         $i = 0;
         if (!empty($this->_explode)) {
             foreach ($this->_explode as $value) {
@@ -46,18 +48,20 @@ class Bootstrap {
                     $val[] = $value;
                 $i++;
             }
-
             if (count($val) == count($ind) and !empty($ind) and !empty($val))
                 $this->_params = array_combine($ind, $val);
             else
                 $this->_params = array();
-            print_r($this->_params);
+            //print_r($this->_params);
+            //
         }
-        
     }
-    
-    public function getParams($name){
-        echo $name;
+
+    public function getParams($name) {
+        $bootstrap = new Bootstrap();
+        if(!array_key_exists($name, $bootstrap->_params))
+                die("O valor nao existe no array");
+        return $bootstrap->_params[$name];
     }
 
     public function run() {
@@ -75,10 +79,4 @@ class Bootstrap {
         $app->{$this->_action}();
     }
 
-    //ERRO DEVERÁ INCLUIR O ARQUIVO DE ERRO
-    public function error() {
-        echo "FODEU DEU EEERRROOOO";
-    }
-
 }
-
