@@ -7,7 +7,6 @@ class Bootstrap {
     public $_controller;
     public $_action;
     public $_params;
-    public $a;
 
     public function __construct() {
         $this->setUrl();
@@ -15,6 +14,7 @@ class Bootstrap {
         $this->setController();
         $this->setAction();
         $this->setParams();
+        
     }
 
     private function setUrl() {
@@ -80,17 +80,17 @@ class Bootstrap {
     }
 
     public function render($name) {
-        $debug = parse_ini_file("config.ini");
+        $_config = parse_ini_file('libs/config.ini');
         $path = 'views/' . $name . '.phtml';
         
         if (!file_exists($path))
                 die("O arquivo nao existe");
         
-        if ($debug['DEBUG'] == TRUE) {
+        if ($_config['DEBUG'] == TRUE) {
             require $path;
         }else {
             require 'views/header.phtml';
-            require 'views/' . $name . '.php';
+            require 'views/' . $name . '.phtml';
             require 'views/footer.phtml';
         }
     }
