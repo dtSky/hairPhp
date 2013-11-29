@@ -5,27 +5,24 @@
             }
             #content h1 { color: #333; line-height: 1em; }
 
-            ul#nav { padding-left: 0; list-style: none; width: 100%; margin-bottom: 40px; }
+            ul#nav { padding-left: 0; list-style: none; }
             ul#nav:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
 
             #content ul#nav li { float: left; width: 20%; text-align: center; }
             #content ul#nav a { 
                 display: block; 
-                background: #000;
-                color: #FFF; 
                 font-weight: bold; 
-                padding: 10px; 
-                border-right: 1px solid #FFF;
+                padding: 10px;
             }
-            #content ul#nav a:hover { background: #333; }
+            #content ul#nav a:hover {}
 
             .open {
                 display: none;
                 float: left;
                 width: 40px;
                 height: 30px;
-                margin-right: 10px;
-                background: url(<?php echo $_config['SITE']; ?>/public/img/menu.png) center center no-repeat #333;
+                margin: 10px 10px 10px 10px;
+                background: url('http://localhost/hairPhp/public/img/menu.png') center center no-repeat #333;
                 -moz-border-radius: 8px;
                 -webkit-border-radius: 8px;
                 -border-radius: 8px;
@@ -53,7 +50,7 @@
 
                 .open { display: block; }
                 #pageslide { width: 200px; }
-                #pageslide #nav li { padding: 10px 0; border-bottom: 1px solid ; }
+                #pageslide #nav li { padding: 10px 0 ; }
                 #pageslide #nav li a { color: #FFF; border: none; }
                 #pageslide #nav li a:hover { text-decoration: underline; }
             }

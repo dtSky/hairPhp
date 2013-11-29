@@ -14,7 +14,6 @@ class Bootstrap {
         $this->setController();
         $this->setAction();
         $this->setParams();
-        
     }
 
     private function setUrl() {
@@ -88,11 +87,10 @@ class Bootstrap {
         
         if ($_config['DEBUG'] == TRUE) {
             require $path;
-        }else {
+        }else{
             require 'views/header.phtml';
             require 'views/' . $name . '.phtml';
             require 'views/footer.phtml';
         }
     }
-
 }
