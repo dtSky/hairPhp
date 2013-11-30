@@ -5,13 +5,13 @@ class Index extends Bootstrap {
     }
     
     public function indexAction(){
-        //echo 'VOCE ESTA NA INDEX';
-        $this->render('index/index');
+        $view = new View();
+        $view->render('index/index');
     }
     
     public function novoAction(){
-        $this->uu = 'Teste';
-        $this->render('index/novo');
+        $view = new View();
+        $view->render('index/novo');
     }
 
 }

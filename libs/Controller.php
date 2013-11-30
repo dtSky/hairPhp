@@ -2,7 +2,7 @@
 
 class Controller extends Bootstrap {
 
-    function __construct() {
+    function __construct(){
     }
     
 

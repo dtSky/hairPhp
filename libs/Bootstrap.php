@@ -1,6 +1,6 @@
 <?php
 
-class Bootstrap {
+class Bootstrap{
 
     protected $_url;
     protected $_explode;
@@ -63,6 +63,10 @@ class Bootstrap {
         return $bootstrap->_params[$name];
     }
 
+    public function activeLink(){
+        echo 'TESTE';
+    }
+    
     public function run() {
         $controller_path = 'controllers/' . $this->_controller . 'Controller.php';
 
@@ -78,19 +82,4 @@ class Bootstrap {
         $app->{$this->_action}();
     }
 
-    public function render($name) {
-        $_config = parse_ini_file('libs/config.ini');
-        $path = 'views/' . $name . '.phtml';
-        
-        if (!file_exists($path))
-                die("O arquivo nao existe");
-        
-        if ($_config['DEBUG'] == TRUE) {
-            require $path;
-        }else{
-            require 'views/header.phtml';
-            require 'views/' . $name . '.phtml';
-            require 'views/footer.phtml';
-        }
-    }
 }
