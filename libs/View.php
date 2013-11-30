@@ -6,8 +6,7 @@ class View extends Bootstrap{
     
 
     public function activeLink($name){
-        if($name == $this->_action)
-            echo 'active';
+        echo $this->_action;
     }    
     
     public function render($file) {

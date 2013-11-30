@@ -9,8 +9,5 @@ require 'libs/Controller.php';
 function __autoload($file){
     require 'models/' . $file . '.php';
 }
-
-
-
 $bootstrap = new Bootstrap();
 $bootstrap->run();
