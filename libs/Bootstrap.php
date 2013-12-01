@@ -63,10 +63,6 @@ class Bootstrap{
         return $bootstrap->_params[$name];
     }
 
-    public function activeLink(){
-        echo 'TESTE';
-    }
-    
     public function run() {
         $controller_path = 'controllers/' . $this->_controller . 'Controller.php';
 
