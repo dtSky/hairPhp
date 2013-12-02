@@ -23,7 +23,7 @@ class View {
             die("O arquivo nao existe");
 
         if ($_config['DEBUG'] == TRUE) {
-            require $file;
+            require $path;
         } else {
             require 'views/header.phtml';
             require 'views/' . $file . '.phtml';

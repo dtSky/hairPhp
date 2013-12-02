@@ -27,10 +27,17 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class='<?= $this->activeLink('index'); ?>'><a href="/hairphp/">Index</a></li>
-                    <li class='<?= $this->activeLink('novo'); ?>'><a href="/hairphp/index/novo">Novo</a></li>
+                    <li class='<?= $this->activeLink('index'); ?>'><a href="/hairphp/"><h4>Index</h4></a></li>
+                    <li class='<?= $this->activeLink('sobre'); ?>'><a href="/hairphp/pages/sobre"><h4>Sobre nós</h4></a></li>
+                    <li class='<?= $this->activeLink(''); ?>'><a href="#"><h4>Instalações</h4></a></li>
+                    <li class='<?= $this->activeLink(''); ?>'><a href="#"><h4>Preços</h4></a></li>
                 </ul>
+                <!-- Login Button -->
+                <div class="pull-right">
+                    <a class='btn btn-danger' style='margin:10px' href='#' >Área do cliente</a>
+                </div>
             </div>
+            
         </nav>
         <div id='spacebar'></div>
 
