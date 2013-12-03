@@ -5,8 +5,7 @@ class Index extends Bootstrap {
     }
     
     public function indexAction(){
-        $teste = new indexModel();
-        $teste->describeTeste();
+        
         $view = new View();
         $view->render('index/index');
     }

@@ -98,21 +98,28 @@
                     Confira nossa tabela de preços e não fique fora dessa.
                     <!--Tabs-->
                     <ul class="nav nav-tabs">
-                        <li><a href="#masculino" data-toggle="tab">Masculino</a></li>
-                        <li><a href="#feminino" data-toggle="tab">Feminino</a></li>
+                        <li class="active"><a href="#masculino" data-toggle="tab">Masc.</a></li>
+                        <li><a href="#feminino" data-toggle="tab">Fem.</a></li>
                         <li><a href="#infantil" data-toggle="tab">Infantil</a></li>
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">
-                        <div class="tab-pane active" id="masculino">Masculino</div>
-                        <div class="tab-pane" id="feminino">Feminino</div>
-                        <div class="tab-pane" id="infantil">Infantil</div>
+                        <div class="tab-pane active" id="masculino"><?php include 'precosMasc.phtml'; ?></div>
+                        <div class="tab-pane" id="feminino"><?php include 'precosFem.phtml'; ?></div>
+                        <div class="tab-pane" id="infantil"><?php include 'precosInf.phtml'; ?></div>
                     </div>
+                    <a class="center-block btn btn-primary" ><span class="glyphicon glyphicon-plus-sign white "></span>  Veja mais</a>
                     <!--Finish Tabs-->
                 </div>
             </div>
         </div>
         <!--Finish Marketing to prices-->
+    </div>
+</div>
+<!--Finish another row-->
+<!--Begin row media marketing-->
+<div class='row' style='background-color: #00526e; padding-top: 10px;'>
+    <div class="container">
         <!--Social media-->
         <div class='col-sm-6 col-md-4'>
             <div class="panel panel-primary">
@@ -125,11 +132,16 @@
             </div>
         </div>
         <!--Finish Social media-->
+        <!--Senssational Equip-->
+        <div class='col-sm-6 col-md-4'>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span class='glyphicon glyphicon-user white'></span> Equipe sensacional!
+                </div>
+                <div class="panel-body">
+                    Uma equipe altamente treinada.
+                </div>
+            </div>
+        </div>
+        <!--Finish Senssational Equip-->
     </div>
-</div>
-<!--Finish another row-->
-<div class='row'>
-    <div class='container'>
-        
-    </div>
-</div>
