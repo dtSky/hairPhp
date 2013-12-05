@@ -10,8 +10,10 @@ class Pages extends Bootstrap {
     }
     
     public function sobreAction(){
+        $dados = new Model();
+        $dado[] = $dados->describe(); 
         $view = new View();
-        $view->render('sobre/index');
+        $view->render('sobre/index', $dado);
     }
 
 }
