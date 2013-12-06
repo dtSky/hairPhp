@@ -3,9 +3,12 @@
 class Model {
 
     public $mysql;
-
-    public function __construct() {
+    public $_table;
+    
+    public function __construct($_table = NULL) {
+        $this->_table = $_table;
         $config = parse_ini_file('libs/config.ini');
+        
         try {
             $this->mysql = new PDO("mysql:dbname={$config['DB']};host={$config['DNS']}", $config['USER'], $config['PASSWORD']);
         } catch (Exception $exc) {
@@ -13,9 +16,20 @@ class Model {
         }
     }
 
-    public function describe() {
-        $sql = $this->mysql->query('SELECT * FROM cad_dados;');
-        return $sql->fetch(PDO::FETCH_ASSOC);
+    public function selectAll() {
+        $sql = $this->mysql->query("SELECT * FROM {$this->_table};");
+        return $sql->fetch();
     }
+
+    public function sql($sql) {
+        if ($sql != NULL):
+            $sql = $this->mysql->query($sql);
+            return $sql->fetch();
+        else:
+            die("Precisa ter o SQL");
+        endif;
+    }
+    
+    
 
 }

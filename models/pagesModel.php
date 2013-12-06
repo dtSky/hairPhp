@@ -6,8 +6,6 @@ class indexModel extends Model {
         parent::__construct();
     }
     
-    public function describeTeste(){
-        
-    }
+    
 
 }

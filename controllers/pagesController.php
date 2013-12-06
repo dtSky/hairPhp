@@ -1,19 +1,17 @@
 <?php
 class Pages extends Bootstrap {
 
-    function __construct() {
-    }
-    
     public function indexAction(){
         $view = new View();
         $view->render('sobre/index');
     }
     
     public function sobreAction(){
-        $dados = new Model();
-        $dado[] = $dados->describe(); 
+        $dados = new Model('cad_dados');
+        $dado = $dados->selectAll(); 
+        
         $view = new View();
-        $view->render('sobre/index', $dado);
+        $view->render('pages/index', $dado);
     }
 
 }
