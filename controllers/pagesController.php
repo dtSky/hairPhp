@@ -7,8 +7,10 @@ class Pages extends Bootstrap {
     }
     
     public function sobreAction(){
-        $dados = new Model('cad_dados');
-        $dado = $dados->selectAll(); 
+        $link = str_ireplace('Action', '', $this->_action);
+        
+        $dados = new Model();
+        $dado = $dados->sql("SELECT * FROM cad_pages WHERE LINK = '{$link}'"); 
         
         $view = new View();
         $view->render('pages/index', $dado);
