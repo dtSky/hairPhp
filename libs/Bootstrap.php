@@ -34,7 +34,7 @@ class Bootstrap{
         $this->_action = $action . 'Action';
     }
 
-    private function setParams() {
+    protected function setParams() {
         unset($this->_explode[0], $this->_explode[1]);
 
         $i = 0;
@@ -51,6 +51,8 @@ class Bootstrap{
                 $this->_params = array_combine($ind, $val);
             else
                 $this->_params = array();
+            
+            return $this->_params;
         }
     }
 

@@ -10,9 +10,28 @@ class View {
         $setAction = new Bootstrap;
         $link = $link . 'Action';
 
-        if ($link == $setAction->_action){
+        if ($link == $setAction->_action) {
             echo 'active';
         }
+    }
+
+    public function menu() {
+        
+            $menu = array(
+                'menu' => array(
+                    'controller' => 'pages',
+                    'action' => 'artigos',
+                    'link' => 'sobre',
+                    'texto' => 'Sobre'
+                ),
+                'menu' => array(
+                    'controller' => 'pages',
+                    'action' => 'artigos',
+                    'link' => 'servicos',
+                    'texto' => 'Serviços'
+                ),
+            );
+        return $menu;
     }
 
     public function render($file, $vars = null) {
@@ -23,7 +42,7 @@ class View {
         $_config = parse_ini_file('libs/config.ini');
         $path = 'views/' . $file . '.phtml';
 
-        if (!file_exists($path)){
+        if (!file_exists($path)) {
             die("O arquivo nao existe");
         }
         if ($_config['DEBUG'] == TRUE) {

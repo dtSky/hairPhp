@@ -6,14 +6,16 @@ class Pages extends Bootstrap {
         $view->render('sobre/index');
     }
     
-    public function sobreAction(){
-        $link = str_ireplace('Action', '', $this->_action);
+    public function artigosAction(){
+        $link = new Bootstrap;
         
         $dados = new Model();
-        $dado = $dados->sql("SELECT * FROM cad_pages WHERE LINK = '{$link}'"); 
+        $dado = $dados->sql("SELECT * FROM cad_pages WHERE LINK = '{$link->_params['link']}'"); 
         
         $view = new View();
         $view->render('pages/index', $dado);
+        
+        
     }
 
 }

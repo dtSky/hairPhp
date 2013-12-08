@@ -28,7 +28,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class='<?= $this->activeLink('index'); ?>'><a href="/hairphp/"><h4>Index</h4></a></li>
-                    <li class='<?= $this->activeLink('sobre'); ?>'><a href="/hairphp/pages/sobre"><h4>Sobre nós</h4></a></li>
+                    <li class='<?= $this->activeLink('sobre'); ?>'><a href="/hairphp/pages/artigos/link/sobre"><h4>Sobre nós</h4></a></li>
                     <li class='<?= $this->activeLink(''); ?>'><a href="#"><h4>Instalações</h4></a></li>
                     <li class='<?= $this->activeLink(''); ?>'><a href="#"><h4>Preços</h4></a></li>
                 </ul>
@@ -41,3 +41,10 @@
         </nav>
         <div id='spacebar'></div>
 
+<?php
+$links = $this->menu();
+foreach ($links as  $value) {
+    
+    print_r($value);
+}
+?>
