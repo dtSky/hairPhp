@@ -3,7 +3,7 @@ class Pages extends Bootstrap {
 
     public function indexAction(){
         $view = new View();
-        $view->render('sobre/index');
+        $view->render('pages/index');
     }
     
     public function artigosAction(){

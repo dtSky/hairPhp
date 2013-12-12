@@ -10,9 +10,6 @@ class Index extends Bootstrap {
         $view->render('index/index');
     }
     
-    public function novoAction(){
-        $view = new View();
-        $view->render('index/novo');
-    }
+    
 
 }
