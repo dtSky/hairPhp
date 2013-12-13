@@ -10,7 +10,7 @@ class Pages extends Bootstrap {
         $link = new Bootstrap;
         
         $dados = new Model();
-        $dado = $dados->sql("SELECT * FROM cad_pages WHERE LINK = '{$link->_params['link']}'"); 
+        $dado = $dados->sql("SELECT * FROM cad_pages WHERE LINK = '{$link->_controller}'"); 
         
         $view = new View();
         $view->render('pages/index', $dado);

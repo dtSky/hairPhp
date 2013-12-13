@@ -2,7 +2,7 @@
 <html lang="pt-br">
     <head>
 
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <!--  The jquery.pageslide.css stylesheet has the class that you'll need on your page -->
         <link rel="stylesheet" type="text/css" href="<?php echo $_config['SITE']; ?>public/css/jquery.pageslide.css" />
@@ -27,24 +27,16 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class='<?= $this->activeLink('index'); ?>'><a href="/hairphp/"><h4>Index</h4></a></li>
-                    <li class='<?= $this->activeLink('sobre'); ?>'><a href="/hairphp/pages/artigos/link/sobre"><h4>Sobre nós</h4></a></li>
+                    <li class='<?= $this->activeLink('index'); ?>'><a href="/hairphp/"><h4>Inicio</h4></a></li>
+                    <li class='<?= $this->activeLink('sobre'); ?>'><a href="/hairphp/sobre"><h4>Quem somos</h4></a></li>
                     <li class='<?= $this->activeLink(''); ?>'><a href="#"><h4>Instalações</h4></a></li>
-                    <li class='<?= $this->activeLink(''); ?>'><a href="#"><h4>Preços</h4></a></li>
+                    <li class='<?= $this->activeLink(''); ?>'><a href="#"><h4>Serviços</h4></a></li>
                 </ul>
                 <!-- Login Button -->
                 <div class="pull-right">
-                    <a class='btn btn-danger' style='margin:10px' href='#' >Área do cliente</a>
+                    <a class='btn btn-danger' style='margin:10px' href='#' >&Aacute;rea do cliente</a>
                 </div>
             </div>
             
         </nav>
         <div id='spacebar'></div>
-
-<?php
-$links = $this->menu();
-foreach ($links as  $value) {
-    
-    print_r($value);
-}
-?>

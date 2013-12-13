@@ -2,37 +2,15 @@
 
 class View {
 
-    function __construct() {
-        
-    }
-
     public function activeLink($link) {
-        $setAction = new Bootstrap;
-        $link = $link . 'Action';
+        $setController = new Bootstrap;
+        $link = $link ;
 
-        if ($link == $setAction->_action) {
+        if ($link == $setController->_controller) {
             echo 'active';
         }
     }
 
-    public function menu() {
-        
-            $menu = array(
-                'menu' => array(
-                    'controller' => 'pages',
-                    'action' => 'artigos',
-                    'link' => 'sobre',
-                    'texto' => 'Sobre'
-                ),
-                'menu' => array(
-                    'controller' => 'pages',
-                    'action' => 'artigos',
-                    'link' => 'servicos',
-                    'texto' => 'Serviços'
-                ),
-            );
-        return $menu;
-    }
 
     public function render($file, $vars = null) {
         if (is_array($vars) && count($vars) > 0):
