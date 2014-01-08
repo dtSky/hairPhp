@@ -6,38 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <!--  The jquery.pageslide.css stylesheet has the class that you'll need on your page -->
         <link rel="stylesheet" type="text/css" href="<?php echo $_config['SITE']; ?>public/css/jquery.pageslide.css" />
-        <link rel="stylesheet" type="text/css" href="<?php echo $_config['SITE']; ?>public/css/bootswatch.min.css" />
+       <link rel="stylesheet" type="text/css" href="<?php echo $_config['SITE']; ?>public/css/bootswatch.min.css" /> 
+        <!-- <link rel="stylesheet" type="text/css" href="http://getbootstrap.com/dist/css/bootstrap.min.css" />-->
         <link rel="stylesheet" type="text/css" href="<?php echo $_config['SITE']; ?>public/css/style.css" />
 
         <title>Hair PHP</title>
     </head>
     <body>
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle pull-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/hairphp/"><img src='http://xcellencehairsalon.scent-of-art.com/images/xcellence_hair_salon_logo_-01.png' width='50px'/>Style no cabelo</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class='<?= $this->activeLink('index'); ?>'><a href="/hairphp/"><h4>Inicio</h4></a></li>
-                    <li class='<?= $this->activeLink('sobre'); ?>'><a href="/hairphp/sobre"><h4>Quem somos</h4></a></li>
-                    <li class='<?= $this->activeLink(''); ?>'><a href="#"><h4>Instalações</h4></a></li>
-                    <li class='<?= $this->activeLink(''); ?>'><a href="#"><h4>Serviços</h4></a></li>
-                    <li class='<?= $this->activeLink(''); ?>'><a href="#"><h4>Equipe</h4></a></li>
-                </ul>
-                <!-- Login Button -->
-                <div class="pull-right">
-                    <a class='btn btn-danger' style='margin:10px' href='#' >&Aacute;rea do cliente</a>
-                </div>
-            </div>
-            
-        </nav>
-        <div id='spacebar'></div>

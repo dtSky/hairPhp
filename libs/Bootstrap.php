@@ -1,6 +1,6 @@
 <?php
 
-class Bootstrap{
+class Bootstrap {
 
     protected $_url;
     protected $_explode;
@@ -51,7 +51,7 @@ class Bootstrap{
                 $this->_params = array_combine($ind, $val);
             else
                 $this->_params = array();
-            
+
             return $this->_params;
         }
     }
@@ -65,7 +65,33 @@ class Bootstrap{
         return $bootstrap->_params[$name];
     }
 
+    public function getFirstParams() {
+        $bootstrap = new Bootstrap();
+        if ($bootstrap->_params != NULL)
+            return array_slice( $bootstrap->_params, -50, 1, TRUE );
+        else
+            return FALSE;
+    }
+    
+    public function getLastParams() {
+        $bootstrap = new Bootstrap();
+        if ($bootstrap->_params != NULL)
+            return array_slice( $bootstrap->_params, 1, TRUE );
+        else
+            return FALSE;
+    }
+    
+    public function getAllParams() {
+        $bootstrap = new Bootstrap();
+        if ($bootstrap->_params != NULL)
+            return $bootstrap->_params;
+        else
+            return FALSE;
+    }
+
     public function run() {
+        require 'helpers/auth.php';
+
         $controller_path = 'controllers/' . $this->_controller . 'Controller.php';
 
         if (!file_exists($controller_path))

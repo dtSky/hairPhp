@@ -1,0 +1,11 @@
+<!--Containers-->
+<script src="<?php echo $_config['SITE']; ?>public/tinymce/tinymce.min.js"></script>
+<script>
+        tinymce.init({
+            selector:'textarea', 
+            language:'pt_BR',
+            menubar: 'view edit format'
+        });
+</script>
+<textarea rows="12"><?php echo $view_CONTEUDO //print_r(get_defined_vars()) ?></textarea>
+<br />

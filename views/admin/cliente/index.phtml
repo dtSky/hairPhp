@@ -1,0 +1,49 @@
+<!--Containers-->
+
+<div class='row'>
+
+    <div class=" " id="">
+        <p><h2>Lista de clientes</h2></p>
+        <div class="row">
+
+            <input type="text" class="input-search col-md-3" alt="lista-clientes" placeholder="Buscar nesta lista" />
+        </div>
+        <div class="row">
+            <a class="btn btn-default pull-right" href="<?php echo $_config['SITE'] . $_SESSION['nivel'] . '/cliente/add/novo' ?>"><span class="glyphicon glyphicon-plus-sign"></span></a>
+        </div>
+
+        <div id="paging_container">
+            <table class="table table-bordered lista-clientes" style="">
+                <thead>
+                    <tr>
+                        <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">#</th>
+                        <th>Nome</th>
+                        <th>Usuário</th>
+                        <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Ativo</th>
+                        <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Opções</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    foreach ($view_linha as $linha => $valor) {
+                        echo "<tr class='alt_content'>",
+                        "<td>" . $valor['id'] . "</td>",
+                        "<td>" . $valor['nome'] . "</td>",
+                        "<td>" . $valor['user'] . "</td>",
+                        "<td>" . $valor['ativo'] . "</td>",
+                        "<td> Opções </td>",
+                        "</tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+
+
+
+            <div class="alt_page_navigation pager" style="">
+            </div>
+
+
+        </div>
+    </div>
+</div>

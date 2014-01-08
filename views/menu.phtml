@@ -1,0 +1,32 @@
+<nav	class="navbar navbar-default navbar-fixed-top" role="navigation"> <!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle pull-left"
+			data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
+			<span class="icon-bar"></span> <span class="icon-bar"></span>
+		</button>
+            <a href="<?php echo $_config['SITE'] . 'entrar'; ?>" class="entrar-top btn-lg pull-right hidden-lg "><span class="glyphicon glyphicon-user"> </span></a>
+		<a class="navbar-brand" href="/hairphp/"><img
+			src='http://xcellencehairsalon.scent-of-art.com/images/xcellence_hair_salon_logo_-01.png'
+			width='50px' />Style no cabelo</a>
+	</div>
+	
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		<ul class="nav navbar-nav">
+			<li class='<?= $this->activeLink('index'); ?>'><a href="/hairphp/"><h4>Inicio</h4>
+			</a></li>
+			<li class='<?= $this->activeLink('sobre'); ?>'><a
+				href="/hairphp/sobre"><h4>Quem somos</h4> </a></li>
+			<li class='<?= $this->activeLink(''); ?>'><a href="#"><h4>Instalações</h4>
+			</a></li>
+			<li class='<?= $this->activeLink(''); ?>'><a href="#"><h4>Serviços</h4>
+			</a></li>
+			<li class='<?= $this->activeLink('entrar'); ?> visible-lg'><a
+				href="<?php echo $_config['SITE'] . 'entrar'; ?>" class="btn-danger"><h4>Acesso
+						exclusivo</h4> </a></li>
+		</ul>
+	</div>
+
+</nav>
+<div id='spacebar'></div>

@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2.2
+-- version 4.0.4
 -- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tempo de Geração: 
--- Versão do Servidor: 5.5.27
--- Versão do PHP: 5.4.7
+-- Máquina: 127.0.0.1
+-- Data de Criação: 04-Jan-2014 às 17:02
+-- Versão do servidor: 5.5.32
+-- versão do PHP: 5.4.16
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,8 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Banco de Dados: `phphair`
+-- Base de Dados: `phphair`
 --
+CREATE DATABASE IF NOT EXISTS `phphair` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `phphair`;
 
 -- --------------------------------------------------------
 
@@ -43,6 +45,20 @@ INSERT INTO `cad_dados` (`ID`, `TITULO`, `VALOR`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `cad_estoque`
+--
+
+CREATE TABLE IF NOT EXISTS `cad_estoque` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cad_produtos_id` int(11) NOT NULL,
+  `quantidade` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_cad_estoque_cad_produtos_idx` (`cad_produtos_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `cad_pages`
 --
 
@@ -53,12 +69,106 @@ CREATE TABLE IF NOT EXISTS `cad_pages` (
   UNIQUE KEY `LINK` (`LINK`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Extraindo dados da tabela `cad_pages`
+-- Estrutura da tabela `cad_produtos`
 --
 
-INSERT INTO `cad_pages` (`LINK`, `TITULO`, `CONTEUDO`) VALUES
-('sobre', 'A hair', '<p>Maecenas urna purus, volutpat vitae tortor a, sodales laoreet elit. Proin augue neque, hendrerit adipiscing pellentesque quis, mollis at lacus. Etiam consequat nulla eget mi semper, quis fringilla nisi varius. Morbi pulvinar ullamcorper nulla in iaculis. Pellentesque ultrices ante vel sapien dictum, non semper ante aliquet. Fusce non orci arcu. Pellentesque suscipit turpis purus, sodales placerat elit malesuada sodales. Sed ut magna fermentum eros fringilla fermentum. Nullam tellus purus, tincidunt eget orci quis, auctor tincidunt magna. Phasellus diam ligula, porta a eleifend quis, commodo tempor turpis. Vivamus fermentum ut libero in euismod.\n</p>\n<p>Ut rhoncus, erat at commodo mollis, orci sem molestie massa, eu elementum libero mauris posuere quam. Cras eget urna pretium, ornare arcu consectetur, suscipit arcu. Etiam vehicula odio ac aliquet fermentum. Vivamus dignissim nisl nulla, vitae placerat velit aliquam id. Ut hendrerit lobortis quam in scelerisque. Ut risus nisl, pharetra malesuada turpis vel, ullamcorper adipiscing orci. Fusce ut est adipiscing, fermentum nisl ut, dictum arcu. Phasellus in erat id nunc pulvinar cursus vitae eu nulla. In eget euismod ligula.\n</p>\n<p>Vestibulum et augue nibh. Morbi non molestie neque. Mauris quis erat nulla. Etiam a ipsum at libero condimentum volutpat vel eu sem. Vestibulum felis mi, vestibulum sed augue sit amet, molestie sodales lorem. Pellentesque blandit turpis sit amet ornare aliquam. Aliquam sit amet est a neque vestibulum scelerisque. Vestibulum a ipsum vitae leo tempus molestie. Mauris facilisis laoreet enim, sit amet mollis dolor venenatis porta. Duis accumsan urna dolor, a pretium urna convallis nec. Quisque et ligula in massa luctus gravida. Donec tincidunt augue id tellus mollis sagittis. Aliquam elit nunc, fermentum vel pharetra ut, interdum nec nulla.\n</p>\n<p>In lacinia sit amet est nec convallis. Ut fermentum lobortis lacus, at viverra nunc imperdiet eget. Curabitur vehicula bibendum lacus, et interdum nibh auctor vitae. Integer pellentesque tempus felis posuere vulputate. Duis euismod viverra dui vitae elementum. Donec vitae tortor at sapien molestie fermentum sed eget enim. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In id diam at turpis vulputate rhoncus. Phasellus viverra ligula consectetur nunc luctus, id tempus nisl dapibus. Nunc vel ullamcorper augue. Nulla facilisi. Phasellus lobortis purus quis enim aliquet pellentesque. Morbi vestibulum placerat ligula, eget aliquam nisi iaculis eu. Donec eget pellentesque sapien, quis faucibus leo.\n</p>');
+CREATE TABLE IF NOT EXISTS `cad_produtos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(20) DEFAULT NULL,
+  `descricao` text,
+  `valor` decimal(10,2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `cad_servicos`
+--
+
+CREATE TABLE IF NOT EXISTS `cad_servicos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(20) DEFAULT NULL,
+  `descricao` text,
+  `valor` decimal(10,2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `rel_entrada_saida`
+--
+
+CREATE TABLE IF NOT EXISTS `rel_entrada_saida` (
+  `id` int(11) NOT NULL,
+  `servico` int(11) DEFAULT NULL,
+  `produto` int(11) DEFAULT NULL,
+  `data` date DEFAULT NULL,
+  `hora` time DEFAULT NULL,
+  `funcionario` int(11) NOT NULL,
+  `cliente` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_rel_entrada_saida_cad_servicos1_idx` (`servico`),
+  KEY `fk_rel_entrada_saida_cad_produtos1_idx` (`produto`),
+  KEY `fk_rel_entrada_saida_web_usuario1_idx` (`funcionario`),
+  KEY `fk_rel_entrada_saida_web_usuario2_idx` (`cliente`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `web_usuario`
+--
+
+CREATE TABLE IF NOT EXISTS `web_usuario` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) NOT NULL,
+  `datanascimento` date DEFAULT NULL,
+  `endereco` varchar(50) DEFAULT NULL,
+  `numero` varchar(7) DEFAULT NULL,
+  `bairro` varchar(50) DEFAULT NULL,
+  `cidade` varchar(20) DEFAULT NULL,
+  `telefone` varchar(10) DEFAULT NULL,
+  `celular` varchar(10) DEFAULT NULL,
+  `rg` varchar(27) DEFAULT NULL,
+  `cpf` varchar(27) DEFAULT NULL,
+  `user` varchar(30) NOT NULL,
+  `pass` varchar(30) NOT NULL,
+  `nivel` varchar(10) DEFAULT NULL,
+  `sexo` varchar(45) DEFAULT NULL,
+  `ativo` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Extraindo dados da tabela `web_usuario`
+--
+
+INSERT INTO `web_usuario` (`id`, `nome`, `datanascimento`, `endereco`, `numero`, `bairro`, `cidade`, `telefone`, `celular`, `rg`, `cpf`, `user`, `pass`, `nivel`, `sexo`, `ativo`) VALUES
+(2, 'Ernandes', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'teste', 'teste', 'admin', NULL, 1);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `cad_estoque`
+--
+ALTER TABLE `cad_estoque`
+  ADD CONSTRAINT `fk_cad_estoque_cad_produtos` FOREIGN KEY (`cad_produtos_id`) REFERENCES `cad_produtos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `rel_entrada_saida`
+--
+ALTER TABLE `rel_entrada_saida`
+  ADD CONSTRAINT `fk_rel_entrada_saida_cad_produtos1` FOREIGN KEY (`produto`) REFERENCES `cad_produtos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_rel_entrada_saida_cad_servicos1` FOREIGN KEY (`servico`) REFERENCES `cad_servicos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_rel_entrada_saida_web_usuario1` FOREIGN KEY (`funcionario`) REFERENCES `web_usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_rel_entrada_saida_web_usuario2` FOREIGN KEY (`cliente`) REFERENCES `web_usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

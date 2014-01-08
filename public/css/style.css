@@ -1,12 +1,16 @@
 #spacebar{margin-top: 70px;}
-.navbar-nav{ margin: 3px 0px 0px 0px;}
-.navbar-toggle{margin: 25px 0px 0px 25px;}
+.navbar-nav{ margin: 0px 0px 0px 0px;}
+.navbar-toggle{margin: 20px 0px 0px 20px;}
 .carousel-inner>.item>img, .carousel-inner>.item>a>img{width: 100%;height: 400px}
 .row{margin-left: 0px; width: 100%}
 .opaco{background-color: #222; margin: 0px 0px 0px 0px; opacity:0.4; filter:alpha(opacity=40);}
 .white, .white a {color: #fff;}
 .thumbnail img{height: 250px;}
 .thumbnail-top{width: 100%; height: 250px;}
+.entrar-top{margin: 8px 0px 0px 0px;}
+.entrar-top, btn-lg{width: 20px}
+/*.btn-group, .btn-group-vertical{margin:0px -4px 0px 0px;} */
+th{font-size: 13pt}
 /* Mobile and iPad Portrait */
 @media only screen and (max-width: 959px) {
     

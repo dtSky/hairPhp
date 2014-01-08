@@ -1,0 +1,71 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <!-- User desktop and mobile logged -->
+    <div class="btn-group pull-right" >
+        <button href="#" class="btn btn-danger btn-lg  dropdown-toggle" style="margin: 0px" data-toggle="dropdown">
+            <h4>
+                <span class="glyphicon glyphicon-user"></span> 
+                <?php echo $_SESSION['nome']; ?>
+                <span class="caret"></span> 
+            </h4>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            
+            <li>
+            	<a href="#">
+            		<h4><span class="glyphicon glyphicon-wrench"></span> Configuração</h4>
+            	</a>
+            </li>
+            <li>
+            	<a href="<?php echo $_config['SITE'] . $_SESSION['nivel'] . '/sair'; ?>">
+            		<h4><span class="glyphicon glyphicon-off"></span> Sair</h4>
+            	</a>
+            </li>
+        </ul>
+    </div>
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle pull-left " data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/hairphp/">
+            <img src='http://xcellencehairsalon.scent-of-art.com/images/xcellence_hair_salon_logo_-01.png' width='40px'/>
+        </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><h3> Lista <b class="caret"></b></h3></a>
+                <ul class="dropdown-menu">
+                    <li><a href="<?php echo $_config['SITE'] . $_SESSION['nivel'] . '/cliente'; ?>"><h4> Clientes</h4></a></li>
+                    <li><a href="<?php echo $_config['SITE'] . $_SESSION['nivel'] . '/funcionario'; ?>"><h4> Funcionários</h4></a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><h3> Controle <b class="caret"></b></h3></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><h4> Editar páginas</h4></a></li>
+                    <li><a href="#"><h4> Fazer pedido</h4></a></li>
+                    <li><a href="#"><h4> Financeiro</h4></a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><h3> Relatório <b class="caret"></b></h3></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><h4> Financeiro</h4></a></li>
+                    <li><a href="#"><h4> Entrada - Saída</h4></a></li>
+                    <li><a href="#"><h4> Clientes</h4></a></li>
+                    <li><a href="#"><h4> Progresso</h4></a></li>
+                </ul>
+            </li>
+        </ul>
+    </div><!-- /.navbar-collapse -->
+
+</nav>
+<div id='spacebar'></div>
+
+<!--Containers-->
