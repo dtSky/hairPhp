@@ -14,7 +14,7 @@
                 </span>
             </div>
         </div>
-    <br/>
+        <br/>
 
         <div class="row">
             <a class="btn btn-default pull-right" href="<?php echo $_config['SITE'] . $_SESSION['nivel'] . '/cliente/add/novo' ?>"><span class="glyphicon glyphicon-plus-sign"></span></a>
@@ -31,7 +31,8 @@
                         <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Opções</th>
                     </tr>
                 </thead>
-                <tbody id="tbody">
+                <tbody id="tbody"></tbody>
+                <tbody id="">
                     <?php
                     foreach ($view_linha as $linha => $valor) {
                         echo "<tr class='alt_content'>",
@@ -45,8 +46,6 @@
                     ?>
                 </tbody>
             </table>
-
-
 
             <div class="alt_page_navigation pager" style="">
             </div>
