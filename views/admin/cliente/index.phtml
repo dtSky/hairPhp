@@ -1,13 +1,21 @@
 <!--Containers-->
 
+<?php //echo json_encode($view_linha); ?>
+
 <div class='row'>
 
     <div class=" " id="">
         <p><h2>Lista de clientes</h2></p>
-        <div class="row">
-
-            <input type="text" class="input-search col-md-3" alt="lista-clientes" placeholder="Buscar nesta lista" />
+        <div class="col-md-3">
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control input-search col-md-3" alt="lista-clientes" placeholder="Buscar clientes" />
+                <span class="input-group-btn">
+                    <button class="btn btn-default" id="clear" type="button"><span class="glyphicon glyphicon-remove-sign"></span></button>
+                </span>
+            </div>
         </div>
+    <br/>
+
         <div class="row">
             <a class="btn btn-default pull-right" href="<?php echo $_config['SITE'] . $_SESSION['nivel'] . '/cliente/add/novo' ?>"><span class="glyphicon glyphicon-plus-sign"></span></a>
         </div>
@@ -23,7 +31,7 @@
                         <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Opções</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbody">
                     <?php
                     foreach ($view_linha as $linha => $valor) {
                         echo "<tr class='alt_content'>",

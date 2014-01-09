@@ -15,6 +15,8 @@ class Admin extends Bootstrap {
 
     //CLIENTE
     public function clienteAction() {
+
+
         $admModel = new adminModel();
         $arrayClientes = $admModel->getAllWebUser();
 
@@ -22,6 +24,21 @@ class Admin extends Bootstrap {
 
         $arrays = parent::getFirstParams();
 
+
+        if (isset($_POST['search']) and $_POST['search'] != '') {
+            $arrayClientes = $admModel->getLikeUser($_POST['search']);
+            foreach ($arrayClientes['linha'] as $linha => $valor) {
+                echo 
+                "<tr class='alt_content'>",
+                    "<td>" . $valor['id'] . "</td>",
+                    "<td>" . $valor['nome'] . "</td>",
+                    "<td>" . $valor['user'] . "</td>",
+                    "<td>" . $valor['ativo'] . "</td>",
+                    "<td> Opções </td>",
+                "</tr>";
+            }
+            return FALSE;
+        }
         if ($arrays != NULL) {
 
             foreach ($arrays as $key => $value) {
@@ -45,7 +62,7 @@ class Admin extends Bootstrap {
                 return FALSE;
             }
         }
-        
+
 
 
         $view->renderLogado('admin/cliente/index', $arrayClientes);
