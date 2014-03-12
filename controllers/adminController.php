@@ -3,8 +3,9 @@
 class Admin extends Bootstrap {
 
     function __construct() {
-        if (!isset($_SESSION['nivel']) or !isset($_SESSION['logado']))
+        if (!isset($_SESSION['nivel']) or !isset($_SESSION['logado'])){
             header('Location: entrar');
+        }
     }
 
     //INDEX
@@ -14,17 +15,42 @@ class Admin extends Bootstrap {
     }
 
     //CLIENTE
+    
+    public function pesquisaAction($model){
+        if (isset($_POST['search']) and $_POST['search'] != '') {
+            $arrayClientes = $model;
+            foreach ($arrayClientes['linha'] as $linha => $valor) {
+                echo 
+                "<tr class='alt_content'>",
+                    "<td>" . $valor['id'] . "</td>",
+                    "<td>" . $valor['nome'] . "</td>",
+                    "<td>" . $valor['user'] . "</td>",
+                    "<td>" . $valor['ativo'] . "</td>",
+                    "<td> Opções </td>",
+                "</tr>";
+            }
+            return FALSE;
+        }
+    }
+    
     public function clienteAction() {
+
         $admModel = new adminModel();
-        $arrayClientes = $admModel->getAllWebUser();
+        $arrayClientes = $admModel->getAllWebUser('cliente');
 
         $view = new View();
 
         $arrays = parent::getFirstParams();
-
+        
+        $pesquisa = new Admin;
+        if(isset($_POST['search'])):
+            $pesquisa->pesquisaAction($admModel->getLikeUser($_POST['search']));
+        endif;
+        
+        
         if ($arrays != NULL) {
-
             foreach ($arrays as $key => $value) {
+                
                 switch ($key) {
                     case 'add':
                         $view->renderLogado('admin/cliente/add', $arrays);
@@ -45,7 +71,7 @@ class Admin extends Bootstrap {
                 return FALSE;
             }
         }
-        
+
 
 
         $view->renderLogado('admin/cliente/index', $arrayClientes);

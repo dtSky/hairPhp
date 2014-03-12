@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: 127.0.0.1
--- Data de Criação: 04-Jan-2014 às 17:02
+-- Data de Criação: 09-Jan-2014 às 14:41
 -- Versão do servidor: 5.5.32
 -- versão do PHP: 5.4.16
 
@@ -142,14 +142,24 @@ CREATE TABLE IF NOT EXISTS `web_usuario` (
   `sexo` varchar(45) DEFAULT NULL,
   `ativo` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Extraindo dados da tabela `web_usuario`
 --
 
 INSERT INTO `web_usuario` (`id`, `nome`, `datanascimento`, `endereco`, `numero`, `bairro`, `cidade`, `telefone`, `celular`, `rg`, `cpf`, `user`, `pass`, `nivel`, `sexo`, `ativo`) VALUES
-(2, 'Ernandes', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'teste', 'teste', 'admin', NULL, 1);
+(2, 'Ernandes', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'teste', 'teste', 'admin', NULL, 1),
+(3, 'Cliente', '1991-01-23', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'cliente1', 'cliente1', 'cliente', NULL, 1),
+(4, 'Cliente 2', '1991-01-23', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'cliente2', 'cliente2', 'cliente', NULL, 1),
+(5, 'Cliente 3', '1991-01-23', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'cliente3', 'cliente3', 'cliente', NULL, 1),
+(6, 'Cliente 4', '1991-01-23', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'cliente4', 'cliente4', 'cliente', NULL, 1),
+(7, 'Cliente 5', '1991-01-23', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'cliente5', 'cliente5', 'cliente', NULL, 1),
+(8, 'Cliente 6', '1991-01-23', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'cliente6', 'cliente6', 'cliente', NULL, 1),
+(9, 'Cliente 7', '1991-01-23', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'cliente7', 'cliente7', 'cliente', NULL, 1),
+(10, 'Cliente 8', '1991-01-23', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'cliente8', 'cliente8', 'cliente', NULL, 1),
+(11, 'Cliente 9', '1991-01-23', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'cliente9', 'cliente9', 'cliente', NULL, 1),
+(12, 'Cliente 10', '1991-01-23', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'cliente10', 'cliente10', 'cliente', NULL, 1);
 
 --
 -- Constraints for dumped tables

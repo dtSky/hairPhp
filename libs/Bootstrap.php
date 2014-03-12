@@ -40,18 +40,19 @@ class Bootstrap {
         $i = 0;
         if (!empty($this->_explode)) {
             foreach ($this->_explode as $value) {
-                if ($i % 2 == 0)
+                if ($i % 2 == 0) {
                     $ind[] = $value;
-                else
+                } else {
                     $val[] = $value;
+                }
                 $i++;
             }
 
-            if (count($val) == count($ind) and !empty($ind) and !empty($val))
+            if (count($val) == count($ind) and !empty($ind) and !empty($val)) {
                 $this->_params = array_combine($ind, $val);
-            else
+            } else {
                 $this->_params = array();
-
+            }
             return $this->_params;
         }
     }
@@ -59,49 +60,52 @@ class Bootstrap {
     public function getParams($name) {
         $bootstrap = new Bootstrap();
 
-        if (!array_key_exists($name, $bootstrap->_params))
+        if (!array_key_exists($name, $bootstrap->_params)) {
             die("O valor nao existe no array");
+        }
 
         return $bootstrap->_params[$name];
     }
 
     public function getFirstParams() {
         $bootstrap = new Bootstrap();
-        if ($bootstrap->_params != NULL)
-            return array_slice( $bootstrap->_params, -50, 1, TRUE );
-        else
+        if ($bootstrap->_params != NULL) {
+            return array_slice($bootstrap->_params, -50, 1, TRUE);
+        } else {
             return FALSE;
+        }
     }
-    
+
     public function getLastParams() {
         $bootstrap = new Bootstrap();
-        if ($bootstrap->_params != NULL)
-            return array_slice( $bootstrap->_params, 1, TRUE );
-        else
+        if ($bootstrap->_params != NULL) {
+            return array_slice($bootstrap->_params, 1, TRUE);
+        } else {
             return FALSE;
+        }
     }
-    
+
     public function getAllParams() {
         $bootstrap = new Bootstrap();
-        if ($bootstrap->_params != NULL)
+        if ($bootstrap->_params != NULL) {
             return $bootstrap->_params;
-        else
+        } else {
             return FALSE;
+        }
     }
 
     public function run() {
-        require 'helpers/auth.php';
-
+        require_once 'helpers/auth.php';
         $controller_path = 'controllers/' . $this->_controller . 'Controller.php';
-
-        if (!file_exists($controller_path))
+        if (!file_exists($controller_path)) {
             die('O controller não existe');
-
+        }
         require $controller_path;
         $app = new $this->_controller();
 
-        if (!method_exists($app, $this->_action))
+        if (!method_exists($app, $this->_action)) {
             die('A action não existe');
+        }
 
         $app->{$this->_action}();
     }

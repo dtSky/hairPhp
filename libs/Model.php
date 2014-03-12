@@ -52,5 +52,18 @@ class Model {
 
         return $array;
     }
+    
+    public function insert($sql){
+        $sql = $this->mysql->prepare($sql);
+        $sql->execute();
+        
+        $count = $sql->rowCount();
+        
+        if($count != 0):
+            echo "Cadastro efetuado com sucesso";
+        else:
+            echo "Não cadastrado por problemas";
+        endif;
+    }
 
 }
