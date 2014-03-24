@@ -2,12 +2,12 @@
 
 class adminModel extends Model {
 
+
     public function getAllWebUser($nivel) {
         $dados['linha'] = $this->sql("SELECT * FROM web_usuario WHERE nivel = '{$nivel}' ORDER BY nome ASC", 1);
-
-        return $dados;
     }
 
+   
     public function getLikeUser($info) {
         $dados['linha'] = $this->sql("SELECT * FROM web_usuario WHERE 
                                         nivel = 'cliente' AND
@@ -18,8 +18,10 @@ class adminModel extends Model {
                                         user LIKE '%{$info}%'
                                         ORDER BY nome ASC", 1);
 
+
         return $dados;
     }
+
     
     public function insertCliente($array =  array()){
         
@@ -44,5 +46,6 @@ class adminModel extends Model {
                 
        
     }
+
 
 }
