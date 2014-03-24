@@ -21,6 +21,28 @@ class adminModel extends Model {
         return $dados;
     }
     
-    public function insertCliente(){}
+    public function insertCliente($array =  array()){
+        
+        parent::sql("INSERT INTO web_usuario VALUES("
+                . "'null',"
+                . "'{$array['nome']}', "
+                . "'{$array['datanascimento']}', "
+                . "'{$array['endereco']}', "
+                . "'{$array['numero']}', "
+                . "'{$array['bairro']}', "
+                . "'{$array['estado']}', "
+                . "'{$array['cidade']}', "
+                . "'{$array['telefone']}', "
+                . "'{$array['celular']}', "
+                . "'{$array['rg']}', "
+                . "'{$array['cpf']}', "
+                . "'{$array['user']}', "
+                . "'{$array['pass']}', "
+                . "'{$array['nivel']}', "
+                . "'{$array['sexo']}', "
+                . "'{$array['ativo']}')");
+                
+       
+    }
 
 }

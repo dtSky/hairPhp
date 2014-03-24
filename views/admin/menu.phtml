@@ -1,11 +1,11 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <!-- User desktop and mobile logged -->
     <div class="btn-group pull-right" >
-        <button href="#" class="btn btn-danger btn-lg  dropdown-toggle" style="margin: 0px" data-toggle="dropdown">
+        <button href="#" class="btn btn-danger btn-lg  dropdown-toggle col-md-12 pull-right" style="margin: 0px" data-toggle="dropdown">
             <h4>
-                <span class="glyphicon glyphicon-user"></span> 
-                <?php echo $_SESSION['nome']; ?>
-                <span class="caret"></span> 
+                <div class="glyphicon glyphicon-user pull-left "></div> 
+                <span class="hidden-xs pull-left"><?php echo $_SESSION['nome']; ?></span>
+                <span class="caret pull-right"></span> 
             </h4>
         </button>
         <ul class="dropdown-menu" role="menu">

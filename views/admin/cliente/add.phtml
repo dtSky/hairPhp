@@ -7,19 +7,20 @@
         <div class="form-group">
             <label for="nome" class="col-sm-2 control-label"><h4>Nome</h4></label>
             <div class="col-sm-5">
-                <input type="text" name="nome " class="form-control input-lg" id="nome" placeholder="Nome">
+                <input type="text" name="nome" class="form-control input-lg" id="nome" placeholder="Nome">
             </div>
         </div>
         <!--            Data de Nascimento-->
         <div class="form-group">
             <label for="nasc" class="col-sm-2 control-label"><h4>Data de Nasc</h4></label>
             <div class="col-sm-2">
-                <input type="date" name="nasc " class="form-control input-lg" id="nasc" placeholder="Data de Nacimento">
+                <input type="date" name="datanascimento" class="form-control input-lg" id="nasc" placeholder="Data de Nacimento">
             </div>
             <!--            Sexo-->
             <label for="sexo" class="col-sm-1 control-label"><h4>Sexo</h4></label>
-            <div class="col-sm-2">
-                <select class="form-control input-lg" name="sexo" id="sexo">
+            <div class="col-sm-2 input-lg">
+                <select class="form-control" name="sexo" id="sexo">
+                    <option disabled="true" selected="true">Escolha</option>
                     <option>Masculino</option>
                     <option>Feminino</option>
                 </select>
@@ -29,19 +30,19 @@
         <div class="form-group">
             <label for="endereco" class="col-sm-2 control-label"><h4>Endereço</h4></label>
             <div class="col-sm-5">
-                <input type="text" name="endereco " class="form-control input-lg" id="endereco" placeholder="Endereço">
+                <input type="text" name="endereco" class="form-control input-lg" id="endereco" placeholder="Endereço">
             </div>
         </div>
         <!--            Numero-->
         <div class="form-group">
             <label for="numero" class="col-sm-2 control-label"><h4>Número</h4></label>
             <div class="col-sm-1">
-                <input type="text" name="numero " class="form-control input-lg" id="numero" placeholder="Número">
+                <input type="text" name="numero" class="form-control input-lg" id="numero" placeholder="Número">
             </div>
             <!--            Bairro-->
             <label for="bairro" class="col-sm-1 control-label"><h4>Bairro</h4></label>
             <div class="col-sm-3">
-                <input type="text" name="bairro " class="form-control input-lg" id="bairro" placeholder="Bairro">
+                <input type="text" name="bairro" class="form-control input-lg" id="bairro" placeholder="Bairro">
             </div>
         </div>
         <!--            Estado-->
@@ -65,41 +66,55 @@
         <div class="form-group">
             <label for="telefone" class="col-sm-2 control-label"><h4>Telefone</h4></label>
             <div class="col-sm-2">
-                <input type="text" name="telefone " class="form-control input-lg" id="telefone" placeholder="Telefone">
+                <input type="text" name="telefone" class="form-control input-lg" id="telefone" placeholder="Telefone">
             </div>
             <!--            Celular-->
             <label for="celular" class="col-sm-1 control-label"><h4>Celular</h4></label>
             <div class="col-sm-2">
-                <input type="text" name="celular " class="form-control input-lg" id="celular" placeholder="Celular">
+                <input type="text" name="celular" class="form-control input-lg" id="celular" placeholder="Celular">
             </div>
         </div>
         <!--            RG-->
+        <div class="form-group">
+            <label for="rg" class="col-sm-2 control-label"><h4>RG</h4></label>
+            <div class="col-sm-2 input-lg">
+                <input type="text" name="rg" class="form-control input-lg" id="rg" placeholder="RG do Cliente">
+            </div>
+        </div>
         <!--            CPF-->
+        <div class="form-group">
+            <label for="cpf" class="col-sm-2 control-label"><h4>CPF</h4></label>
+            <div class="col-sm-2 input-lg">
+                <input type="text" name="cpf" class="form-control input-lg" id="cpf" placeholder="CPF do Cliente">
+            </div>
+        </div>
         <!--            Usuário-->
         <div class="form-group">
-            <label for="usuario" class="col-sm-2 control-label"><h4>Usuário</h4></label>
+            <label for="user" class="col-sm-2 control-label"><h4>Usuário</h4></label>
             <div class="col-sm-5">
-                <input type="text" name="usuario " class="form-control input-lg" id="usuario" placeholder="Usuário">
+                <input type="text" name="user" class="form-control input-lg" id="user" placeholder="Usuário">
             </div>
         </div>
         <!--            Senha-->
         <div class="form-group">
-            <label for="senha" class="col-sm-2 control-label"><h4>Senha</h4></label>
+            <label for="pass" class="col-sm-2 control-label"><h4>Senha</h4></label>
             <div class="col-sm-5">
-                <input type="text" name="senha " class="form-control input-lg" id="senha" placeholder="Senha">
+                <input type="text" name="pass" class="form-control input-lg" id="pass" placeholder="Senha">
             </div>
         </div>
         <!--            Nível-->
         <input type="hidden" name="nivel" value="cliente">
         <!--            Ativo-->
-        <input type="hidden" name="ativo " value="true">
+        <input type="hidden" name="ativo" value="true">
         <!--        Botões-->
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-lg btn-danger"><h4>Salvar</h4></button>
+                <a href="../" class="btn btn-lg btn-danger"><h4>Cancelar</h4></a>
             </div>
         </div>
     </form>
 </div>
 
-<?php print_r($_POST); ?>
+<?php
+print_r($_POST);

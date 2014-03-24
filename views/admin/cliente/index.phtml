@@ -27,7 +27,8 @@
                         <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">#</th>
                         <th>Nome</th>
                         <th>Usuário</th>
-                        <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Ativo</th>
+                        <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">RG</th>
+                        <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><center>Ativo</center></th>
                         <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Opções</th>
                     </tr>
                 </thead>
@@ -39,8 +40,20 @@
                         "<td>" . $valor['id'] . "</td>",
                         "<td>" . $valor['nome'] . "</td>",
                         "<td>" . $valor['user'] . "</td>",
-                        "<td>" . $valor['ativo'] . "</td>",
-                        "<td> Opções </td>",
+                        "<td>" . $valor['rg'] . "</td>",
+                        "<td><center>";
+                        if($valor['ativo'] == 1){
+                            echo "<spam class='glyphicon glyphicon-ok'></spam>";
+                        }else{
+                            echo "<spam class='glyphicon glyphicon-remove'></spam>";
+                        }
+                        echo
+                        "</center></td>",
+                        "<td>"
+                                . "<a class=' btn btn-sm btn-success' href='edit/id/{$valor['id']}'><span class='glyphicon glyphicon-pencil'></span></a> "
+                                . "<a class=' btn btn-sm btn-danger' href='delete/id/{$valor['id']}'><span class='glyphicon glyphicon-minus'></span></a> "
+                                
+                        . "</td>",
                         "</tr>";
                     }
                     ?>

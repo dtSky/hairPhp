@@ -46,14 +46,16 @@
 
 
 $(document).ready(function() {
+    
+    $.site = 'http://localhost/hairphp/';
+    
     $('#paging_container').pajinate({
         items_per_page: 40,
         item_container_id: '.alt_content',
         nav_panel_id: '.alt_page_navigation'
     });
-});
 
-$(document).ready(function() {
+    
     $("#clear").click(function() {
         $("input").val('');
         $("tbody").show();
@@ -86,7 +88,7 @@ $(document).ready(function() {
     $("#estado").ready(function() {
         $.ajax({
             type: "GET",
-            url: "../../../public/xml/estados.xml",
+            url: $.site+"public/xml/estados.xml",
             dataType: "xml",
             success: function(data) {
 
