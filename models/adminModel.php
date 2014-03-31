@@ -4,12 +4,18 @@ class adminModel extends Model {
 
 
     public function getAllWebUser($nivel) {
-        $dados['linha'] = $this->sql("SELECT * FROM web_usuario WHERE nivel = '{$nivel}' ORDER BY nome ASC", 1);
+        $dados['linha'] = parent::sql("SELECT * FROM web_usuario WHERE nivel = '{$nivel}' ORDER BY nome ASC", 1);
+        return $dados;
+    }
+    
+    public function getUserId($id) {
+        $dados['linha'] = parent::sql("SELECT * FROM web_usuario WHERE id = '{$id}' ORDER BY nome ASC");
+        return $dados;
     }
 
    
     public function getLikeUser($info) {
-        $dados['linha'] = $this->sql("SELECT * FROM web_usuario WHERE 
+        $dados['linha'] = parent::sql("SELECT * FROM web_usuario WHERE 
                                         nivel = 'cliente' AND
                                         nome LIKE '%{$info}%' OR
                                         nivel = 'cliente' AND
@@ -17,8 +23,6 @@ class adminModel extends Model {
                                         nivel = 'cliente' AND
                                         user LIKE '%{$info}%'
                                         ORDER BY nome ASC", 1);
-
-
         return $dados;
     }
 

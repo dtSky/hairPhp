@@ -4,8 +4,8 @@
         <button href="#" class="btn btn-danger btn-lg  dropdown-toggle col-md-12 pull-right" style="margin: 0px" data-toggle="dropdown">
             <h4>
                 <div class="glyphicon glyphicon-user pull-left "></div> 
-                <span class="hidden-xs pull-left"><?php echo $_SESSION['nome']; ?></span>
-                <span class="caret pull-right"></span> 
+                <span class="hidden-xs"> <?php echo $_SESSION['nivel']; ?><span class="caret pull-right"></span></span>
+                 
             </h4>
         </button>
         <ul class="dropdown-menu" role="menu">
@@ -48,9 +48,8 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><h3> Controle <b class="caret"></b></h3></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#"><h4> Editar páginas</h4></a></li>
-                    <li><a href="#"><h4> Fazer pedido</h4></a></li>
-                    <li><a href="#"><h4> Financeiro</h4></a></li>
+                    <li><a href="<?php echo $_config['SITE'] . $_SESSION['nivel'] . '/pedido'; ?>"><h4> Fazer pedido</h4></a></li>
+                    <li><a href="#"><h4> Fluxo de caixa</h4></a></li>
                 </ul>
             </li>
             <li class="dropdown">

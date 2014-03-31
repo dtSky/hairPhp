@@ -1,5 +1,118 @@
 <!--Containers-->
-<?php print_r(get_defined_vars());?>
-<div class='row'>
-    <h1>Alteração</h1>
+<!--Containers-->
+
+<div class="row">
+    <h1>Alterar funcionario</h1>
+    <form class="form-horizontal container" role="form" method="POST">
+        <!--            Nome-->
+        <div class="form-group">
+            <label for="nome" class="col-sm-2 control-label"><h4>Nome</h4></label>
+            <div class="col-sm-5">
+                <input type="text" name="nome" class="form-control input-lg" id="nome" placeholder="Nome" value='<?php echo $view_linha['nome']; ?>'>
+            </div>
+        </div>
+        <!--            Data de Nascimento-->
+        <div class="form-group">
+            <label for="nasc" class="col-sm-2 control-label"><h4>Data de Nasc</h4></label>
+            <div class="col-sm-2">
+                <input type="date" name="datanascimento" class="form-control input-lg" id="nasc" placeholder="Data de Nacimento" value='<?php echo $view_linha['datanascimento'];?>'>
+            </div>
+            <!--            Sexo-->
+            <label for="sexo" class="col-sm-1 control-label"><h4>Sexo</h4></label>
+            <div class="col-sm-2 input-lg">
+                <select class="form-control" name="sexo" id="sexo">
+                    <option disabled="true" selected="true" value='<?php echo $view_linha['sexo'];?>'><?php echo $view_linha['sexo']; ?></option>
+                    <option>Masculino</option>
+                    <option>Feminino</option>
+                </select>
+            </div>
+        </div>
+        <!--            Endereço-->
+        <div class="form-group">
+            <label for="endereco" class="col-sm-2 control-label"><h4>Endereço</h4></label>
+            <div class="col-sm-5">
+                <input type="text" name="endereco" class="form-control input-lg" id="endereco" placeholder="Endereço" value='<?php echo $view_linha['endereco'];?>'>
+            </div>
+        </div>
+        <!--            Numero-->
+        <div class="form-group">
+            <label for="numero" class="col-sm-2 control-label"><h4>Número</h4></label>
+            <div class="col-sm-1">
+                <input type="text" name="numero" class="form-control input-lg" id="numero" placeholder="Número" value='<?php echo $view_linha['numero'];?>'>
+            </div>
+            <!--            Bairro-->
+            <label for="bairro" class="col-sm-1 control-label"><h4>Bairro</h4></label>
+            <div class="col-sm-3">
+                <input type="text" name="bairro" class="form-control input-lg" id="bairro" placeholder="Bairro" value='<?php echo $view_linha['bairro'];?>'>
+            </div>
+        </div>
+        <!--            Estado-->
+        <div class="form-group">
+            <label for="estado" class="col-sm-2 control-label"><h4>Estado</h4></label>
+            <div class="col-sm-1 input-lg">
+                <select name="estado" id="estado">
+                    <option disabled="true" value='<?php echo $view_linha['estado'];?>'></option>
+                </select>
+            </div>
+            <!--            Cidade-->
+            <label for="cidade" class="col-sm-1 control-label"><h4>Cidade</h4></label>
+            <div class="col-sm-3 input-lg">
+                <select name="cidade" id="cidade">
+                    <option disabled="true" value='<?php echo $view_linha['cidade'];?>'>Escolha um Estado</option>
+                </select>
+            </div>
+
+        </div>
+        <!--            Telefone-->
+        <div class="form-group">
+            <label for="telefone" class="col-sm-2 control-label"><h4>Telefone</h4></label>
+            <div class="col-sm-2">
+                <input type="text" name="telefone" class="form-control input-lg" id="telefone" placeholder="Telefone" value='<?php echo $view_linha['telefone'];?>'>
+            </div>
+            <!--            Celular-->
+            <label for="celular" class="col-sm-1 control-label"><h4>Celular</h4></label>
+            <div class="col-sm-2">
+                <input type="text" name="celular" class="form-control input-lg" id="celular" placeholder="Celular" value='<?php echo $view_linha['celular'];?>'>
+            </div>
+        </div>
+        <!--            RG-->
+        <div class="form-group">
+            <label for="rg" class="col-sm-2 control-label"><h4>RG</h4></label>
+            <div class="col-sm-2 input-lg">
+                <input type="text" name="rg" class="form-control input-lg" id="rg" placeholder="RG do Cliente" value='<?php echo $view_linha['rg'];?>'>
+            </div>
+        </div>
+        <!--            CPF-->
+        <div class="form-group">
+            <label for="cpf" class="col-sm-2 control-label"><h4>CPF</h4></label>
+            <div class="col-sm-2 input-lg">
+                <input type="text" name="cpf" class="form-control input-lg" id="cpf" placeholder="CPF do Cliente" value='<?php echo $view_linha['cpf'];?>'>
+            </div>
+        </div>
+        <!--            Usuário-->
+        <div class="form-group">
+            <label for="user" class="col-sm-2 control-label"><h4>Usuário</h4></label>
+            <div class="col-sm-5">
+                <input type="text" name="user" class="form-control input-lg" id="user" placeholder="Usuário" value='<?php echo $view_linha['user'];?>'>
+            </div>
+        </div>
+        <!--            Senha-->
+        <div class="form-group">
+            <label for="pass" class="col-sm-2 control-label"><h4>Senha</h4></label>
+            <div class="col-sm-5">
+                <input type="password" name="pass" class="form-control input-lg" id="pass" placeholder="Senha" value='<?php echo $view_linha['pass'];?>'>
+            </div>
+        </div>
+        <!--            Nível-->
+        <input type="hidden" name="nivel" value="funcionario">
+        <!--            Ativo-->
+        <input type="hidden" name="ativo" value="true">
+        <!--        Botões-->
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-lg btn-danger"><h4>Salvar</h4></button>
+                <a href="../../../" class="btn btn-lg btn-danger"><h4>Cancelar</h4></a>
+            </div>
+        </div>
+    </form>
 </div>

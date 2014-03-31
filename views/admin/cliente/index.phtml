@@ -1,9 +1,6 @@
-<!--Containers-->
 
-<?php //echo json_encode($view_linha); ?>
 
 <div class='row'>
-
     <div class=" " id="">
         <p><h2>Lista de clientes</h2></p>
         <div class="col-md-3">
@@ -17,7 +14,7 @@
         <br/>
 
         <div class="row">
-            <a class="btn btn-default pull-right" href="<?php echo $_config['SITE'] . $_SESSION['nivel'] . '/cliente/add/novo' ?>"><span class="glyphicon glyphicon-plus-sign"></span></a>
+            <a class="btn btn-default pull-right" href="<?php echo $_config['SITE'] . $_SESSION['nivel'] . '/cliente/action/new' ?>"><span class="glyphicon glyphicon-plus-sign"></span></a>
         </div>
 
         <div id="paging_container">
@@ -50,8 +47,8 @@
                         echo
                         "</center></td>",
                         "<td>"
-                                . "<a class=' btn btn-sm btn-success' href='edit/id/{$valor['id']}'><span class='glyphicon glyphicon-pencil'></span></a> "
-                                . "<a class=' btn btn-sm btn-danger' href='delete/id/{$valor['id']}'><span class='glyphicon glyphicon-minus'></span></a> "
+                                . "<a class=' btn btn-sm btn-success' href='{$_config['SITE']}admin/cliente/action/edit/id/{$valor['id']}'><span class='glyphicon glyphicon-pencil'></span></a> "
+                                . "<a class=' btn btn-sm btn-danger' href='{$_config['SITE']}admin/cliente/action/delete/id/{$valor['id']}'><span class='glyphicon glyphicon-minus'></span></a> "
                                 
                         . "</td>",
                         "</tr>";
